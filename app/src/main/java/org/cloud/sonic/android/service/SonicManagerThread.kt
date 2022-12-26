@@ -98,7 +98,7 @@ class SonicManagerThread(var handler: Handler?) : Thread() {
 
     try {
       serverSocket?.close()
-    } catch (e: IOException) {
+    } catch (e: Throwable) {
       println(e.message)
       e.printStackTrace()
     }
@@ -106,7 +106,7 @@ class SonicManagerThread(var handler: Handler?) : Thread() {
     System.exit(0)
   }
 
-  var mHandler = object :Handler() {
+  var mHandler = object :Handler(Looper.getMainLooper()) {
     override fun handleMessage(msg: Message) {
       processOrder(msg)
     }

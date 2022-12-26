@@ -24,7 +24,7 @@ import kotlin.jvm.JvmOverloads
 object SLog {
     private const val TAG = "SonicLog"
     private const val PREFIX = "SystemLog "
-    private var mIsDebug = false
+    private var mIsDebug = true
 
     fun initLog(isLog:Boolean) {
         mIsDebug = isLog
